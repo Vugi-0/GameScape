@@ -1,252 +1,163 @@
-GameScape
+# **GameScape**
 
-Find local gamers -- connect, play, meet up
+> Find local gamers. Connect, play, meet up.
 
-GameScape is a web-based meetup platform for gamers who want to connect
-with others in their local area or global distance meeting. Users can
-see other players on an interactive map, filter by game and age, chat
-with nearby players, and create or join gaming events.
+GameScape is a web-based platform for gamers who want to find others
+nearby, chat, and organise meetups. Users appear as markers on an
+interactive map, can filter by game and age, message each other
+directly, and create or join gaming events.
 
-\-\--
+Repository: <https://github.com/Vugi-0/GameScape>
 
-Table of Contents
+## Running the login module
 
-\- Features
+### Requirements
 
-\- Tech Stack
+-   PostgreSQL (download from https://www.postgresql.org/download/)
+-   pgAdmin (usually installed together with PostgreSQL)
+-   Python 3.10+
+-   pip install flask psycopg2
 
-\- Project Structure
+### Setup
 
-\- Installation
+1.  Install PostgreSQL. If pgAdmin asks for a password during setup,
+    use: 1Xf2Gs
 
-\- Running the Project
+<!-- -->
 
-\- API Keys
+1.  Open pgAdmin, connect to the local server and create the tables by
+    running the SQL file:
 
-\- Usage
+    -   Open the Query Tool in pgAdmin
 
-\- Team Members
+    <!-- -->
 
-\- License
+    -   Open the file login/Gamescape_db_sql/sql_kod.sql
 
-\-\--
+    <!-- -->
 
-Features
+    -   Run it
 
-Interactive Map - Built with MapTiler and MapLibre GL -- shows players
-in real-time
+2.  Run the server:
 
-Player Profiles - View gamertag, games, rank, age, and online status
+<!-- -->
 
-Chat System - Direct messaging between players (coming soon)
+    		cd login
+    		python app.py
 
-Filters - Filter players by age, game, and location
+4.  In the terminal, click the link or open http://127.0.0.1:5000/ in a
+    browser.
 
-Dark Theme - Discord-style dark theme with purple accents
+<!-- -->
 
-Location-Based - See players near your current area
+4.  Register an account on the registration page.
 
-Privacy Controls - Invisible mode to hide from the map
+## Running the map module
 
-Responsive - Works on desktop and mobile devices
+Open map/index.html with a local web server.
 
-\-\--
+Option 1 - VS Code Live Server: - Right-click index.html and select Open
+with Live Server
 
-Tech Stack
+Option 2 - Python:
 
-Frontend: HTML5, CSS3, JavaScript
+    		cd map
+    		python -m http.server 8000
 
-Mapping: MapTiler Streets Dark + MapLibre GL
+Then open http://localhost:8000
 
-Icons: DiceBear Avatars (profile pictures)
+## Running the chat module
 
-Hosting: Static files (any web server)
+### Chat (FastAPI + WebSockets)
 
-\-\--
+Real-time 1-on-1 direct messaging between users.
 
-Project Structure
+**Requirements:** - Python 3.10+: `pip install fastapi uvicorn`
 
-GameScape/
+**Running:**
 
-├── index.html Main application file
+    cd chat
+    uvicorn chat:app --reload
+    Open http://localhost:8000
 
-├── map.js Map logic and player markers (MapLibre)
+**How to test:** 1. Open `http://localhost:8000` in two browser tabs 2.
+Enter a different username in each tab and click Connect 3. Type the
+other tab's username in the "Send to..." field and start chatting
 
-├── layout.css Layout and navbar styling
+**Known limitations (in progress):** - No message history: chat clears
+on page reload - No authentication: username is not verified against the
+user database yet - WebSocket URL is hardcoded to `localhost:8000`;
+needs updating before deployment
 
-├── map.css Map-specific styling
+## 
 
-├── sidebar.css Hamburger menu styling
+## 
 
-└── README.txt This file
+## 
 
-\-\--
+## 
 
-Installation
+## Current status
 
-1\. Download all files to the same folder
+  -----------------------------------------------------------------------
+  Feature                             Status
+  ----------------------------------- -----------------------------------
+  User registration                   Working
 
-2\. No dependencies to install - the project uses CDN links for MapLibre
+  Login / authentication              In progress
 
-3\. Get a MapTiler API key if needed
+  Interactive map with player markers Working
 
-The current API key is already in the code, but for production you
-should get your own:
+  Map filters (age, game)             Working
 
-Go to MapTiler website
+  Location-based filter               Placeholder
 
-Create a free account
+  Real-time chat                      Working (local)
 
-Get your API key
+  Chat \<=\> login integration        In progress
 
-Replace MAPTILER_KEY in map.js with your key
+  User profiles with database         In progress
 
-\-\--
+  Event creation and management       Planned
+  -----------------------------------------------------------------------
 
-Running the Project
+## Player marker colours (map)
 
-Option 1: VS Code Live Server (recommended)
+  -----------------------------------------------------------------------
+  Colour                              Meaning
+  ----------------------------------- -----------------------------------
+  🟢 Green                            Active now
 
-Open the project folder in VS Code
+  🟡 Amber                            Recently active
 
-Install the \"Live Server\" extension if you don\'t have it
+  ⚫ Grey                             Offline
+  -----------------------------------------------------------------------
 
-Right-click on index.html
+## Tech stack
 
-Select \"Open with Live Server\"
+  -----------------------------------------------------------------------
+  Layer                               Technology
+  ----------------------------------- -----------------------------------
+  Login backend                       Python / Flask
 
-Option 2: Python HTTP server
+  Chat backend                        Python / FastAPI
 
-For Python 3:
+  Database                            PostgreSQL
 
-python -m http.server 8000
+  Map                                 MapLibre GL + MapTiler Streets Dark
 
-Then open http://localhost:8000 in your browser
+  Frontend                            HTML5, CSS3, Vanilla JavaScript
 
-Option 3: Any web server
+  Avatars                             DiceBear
+  -----------------------------------------------------------------------
 
-Simply upload all files to any static web host (Netlify, Vercel, GitHub
-Pages, etc.)
+## Acknowledgements
 
-\-\--
+-   [MapTiler](https://maptiler.com/) - map tiles and Streets Dark style
+-   [MapLibre GL JS](https://maplibre.org/) - open-source mapping
+    library
+-   [DiceBear](https://dicebear.com/) - avatar placeholders
+-   Discord - design inspiration
 
-API Keys
-
-Service: MapTiler
-
-Key Location: map.js line 8
-
-Purpose: Map tiles and style
-
-Service: DiceBear
-
-Key Location: index.html (hardcoded)
-
-Purpose: Avatar images
-
-Note: The MapTiler API key is currently visible in the code. For
-production, move it to environment variables or a backend proxy.
-
-\-\--
-
-Usage
-
-Navigation
-
-Hamburger menu (three lines) at top-left - Opens menu with Home, Chat,
-Notifications, Settings, Login
-
-Profile picture at top-right - Static for now -- will link to profile
-page
-
-Filters button at top-right (floating on map) - Filter players by age,
-game, location
-
-Player markers on the map - Click to see player profile and start chat
-
-Player Status Colors
-
-Green - Active now
-
-Amber - Recently active
-
-Grey - Offline
-
-Filters
-
-Age: All ages, 18-25, 26-35, 35+
-
-Games: Valorant, CS2, League of Legends, Minecraft, Fortnite
-
-Location: All locations, Malmö, Gothenburg, Stockholm (placeholder)
-
-\-\--
-
-Current Status
-
-Implemented:
-
-MapTiler Streets Dark map
-
-Player markers with status colors
-
-Clickable player profiles
-
-Filter dropdown (Age, Games, Location)
-
-Hamburger menu (Home, Chat, Notifications, Settings, Login/Logout)
-
-Discord-style dark theme
-
-Responsive design (desktop and mobile)
-
-In Progress / Planned:
-
-Real-time chat system (Zakaria)
-
-User profiles with database (Mohamad)
-
-Event creation and management
-
-Location-based filtering (full implementation)
-
-Login and authentication system
-
-\-\--
-
-Known Issues
-
-MapTiler API sometimes returns 403 error - use fallback (will be fixed
-in production)
-
-Chat and profile pages are placeholders - being implemented
-
-Location filter is placeholder - will be implemented with geocoding
-
-\-\--
-
-License
-
-This project is developed as part of a university course. All rights
-reserved by the team members.
-
-\-\--
-
-Acknowledgments
-
-MapTiler for map tiles and Streets Dark style
-
-MapLibre GL for the mapping library
-
-DiceBear Avatars for profile picture placeholders
-
-Discord for design inspiration ( can change later)
-
-\-\--
-
-Contact
-
-For questions about this project, contact the team via the course
-supervisor.
-
-Happy gaming
+*Developed as part of a university course (DA336A). All rights reserved
+by the team.*
