@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gamescape — Chat</title>
+  <link rel="stylesheet" href="/static/chat.css" />
+</head>
+<body>
+
+  <h1>Gamescape <span>Chat</span></h1>
+
+  <!-- identity / connect -->
+  <div class="row">
+    <input id="username" placeholder="Your username" />
+    <button onclick="connectChat()">Connect</button>
+  </div>
+
+  <div id="status">not connected</div>
+
+  <!-- message window -->
+  <div id="chat"></div>
+
+  <!-- compose -->
+  <div class="row">
+    <input id="to"    placeholder="Send to..." />
+    <input id="input" placeholder="Message..." />
+    <button onclick="sendChatMessage()">Send</button>
+  </div>
+
+  <script src="/static/chat.js"></script>
+
+</body>
+</html>

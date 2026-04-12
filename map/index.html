@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameScape - Find Gamers Near You</title>
+
+  <!-- MapLibre GL CSS & JS -->
+  <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet" />
+  <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="map.css">
+  <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
+  <nav class="navbar">
+    <!-- LEFT: Hamburger menu -->
+    <div class="navbar-left">
+      <button class="hamburger-btn" id="hamburgerBtn">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <!-- CENTER: Logo -->
+    <div class="navbar-logo">
+      Game<span class="logo-accent">Scape</span>
+    </div>
+
+    <!-- RIGHT: Profile picture ONLY (no filter bar anymore) -->
+    <div class="navbar-right">
+      <div class="profile-pic" id="profilePic">
+        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=GameScape" alt="Profile" class="avatar-img">
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HAMBURGER MENU (Slide-in from LEFT)
+       ============================================================ -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <div class="side-menu side-menu-left" id="sideMenu">
+    <div class="menu-header">
+      <h3>Menu</h3>
+      <button class="menu-close" id="menuCloseBtn">✕</button>
+    </div>
+    <ul class="menu-items">
+      <li data-page="home">
+        <span class="menu-icon">🏠</span>
+        <span>Home</span>
+      </li>
+      <li data-page="chat">
+        <span class="menu-icon">💬</span>
+        <span>Chat</span>
+      </li>
+      <li data-page="notifications">
+        <span class="menu-icon">🔔</span>
+        <span>Notifications</span>
+      </li>
+      <li data-page="settings">
+        <span class="menu-icon">⚙️</span>
+        <span>Settings</span>
+      </li>
+      <li data-page="login" id="loginMenuItem">
+        <span class="menu-icon">🔓</span>
+        <span id="loginLogoutText">Login</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ============================================================
+       MAIN LAYOUT: Map
+       ============================================================ -->
+  <main class="main-layout">
+    <section class="map-area">
+      <div id="map" style="width: 100%; height: 100%;"></div>
+
+      <!-- Filter button - floating on map, under profile on the RIGHT side -->
+      <div class="filter-float" id="filterFloat">
+        <button class="filter-float-btn" id="filterToggleBtn">▼ Filters</button>
+        <div class="filter-dropdown-float" id="filterDropdown">
+          <div class="filter-group">
+            <label>Age</label>
+            <select id="filterAge">
+              <option value="all">All ages</option>
+              <option value="18-25">18-25</option>
+              <option value="26-35">26-35</option>
+              <option value="35+">35+</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Games</label>
+            <select id="filterGames">
+              <option value="all">All games</option>
+              <option value="valorant">Valorant</option>
+              <option value="cs2">CS2</option>
+              <option value="lol">League of Legends</option>
+              <option value="minecraft">Minecraft</option>
+              <option value="fortnite">Fortnite</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Location</label>
+            <select id="filterLocation">
+              <option value="all">All locations</option>
+              <option value="malmo">Malmö</option>
+              <option value="goteborg">Gothenburg</option>
+              <option value="stockholm">Stockholm</option>
+            </select>
+          </div>
+          <button class="filter-apply" id="applyFilters">Apply Filters</button>
+        </div>
+      </div>
+
+      <!-- Player count bottom left -->
+      <div class="player-count" id="playerCount">
+        <span class="count-dot"></span>
+        <span id="countText">Loading players...</span>
+      </div>
+    </section>
+
+    <!-- Side panel for player details -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-empty" id="sidebarEmpty">
+        <div class="sidebar-empty-icon">🗺</div>
+        <strong>Click on a player on the map</strong>
+        <span>to see profile and start chat</span>
+      </div>
+      <div class="profile-card" id="profileCard" style="display: none;"></div>
+      <div class="chat-panel" id="chatPanel" style="display: none;"></div>
+    </aside>
+  </main>
+
+  <script src="map.js"></script>
+
+</body>
+</html>

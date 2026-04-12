@@ -1,0 +1,313 @@
+
+header > h2{
+    margin-top: 0px;
+}
+a{
+        text-decoration: none;
+
+}
+
+a:hover{
+    color: #65e0f7;
+}
+#container{
+    height: 100vh;
+    background: linear-gradient(to top right, #5bebf9 0%, #bc7de2 93%);
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#social-media{
+
+    width: 30px;
+    height: 30px;
+}
+
+#header{
+    height: 100px;
+    background-color: #071222;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+    position: relative;
+}
+#footer{
+    height: 100px;
+    background-color: #47DAD5;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 20px;
+    color: whitesmoke;
+}
+
+.footer-left,
+.footer-center,
+.footer-right{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-right a{
+    text-decoration: none;
+    color: whitesmoke;
+    transition: 0.3s;
+}
+
+.footer-right a:hover{
+    color: #65e0f7;
+}
+.header-center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.header-left{
+    z-index: 1;
+}
+
+.header-right{
+    z-index: 1;
+}
+.burger{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.burger span{
+    width: 25px;
+    height: 3px;
+    background-color: whitesmoke;
+    display: block;
+}
+
+
+#logo{
+    width: 60px;
+}
+
+main{
+    
+    flex: 1; /* tar all kvarvarande höjd */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#registrera_box{
+    margin: auto;
+}
+
+
+
+.inmatning_user{
+    margin-right: auto;
+    margin-left: auto;
+    
+    width: 90%;
+    height: 20px;
+
+}
+
+.andra_in{
+    margin-bottom: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    height: 20px;
+}
+.div_row_password{
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+}
+
+.inmatning_pasword{
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 110px;
+}
+#password-row{
+    gap: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    
+    padding: 5px;
+    width: auto;
+
+}
+
+#gender_male{
+    margin-left: 10px;    
+    width: 30%;
+}
+#gender_female{
+
+    margin-left: 10px;    
+    margin-right: 10px;    
+    width: 30%;
+}
+
+.gender-check{
+    width: 20px;
+    height: 20px;
+}
+#gender-check_box > h4 {
+    margin-right: 10px;
+    margin: 10px;
+}
+#gender-check_box{
+    display: flex;
+    width: auto;
+    margin-bottom: 25px;
+}
+
+
+#acunt_inlog_box{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Username tar hela raden */
+#full-width{
+    width: 100%;
+    display: flex;
+    margin: 0px;
+    flex-direction: column;
+}
+
+/* Lösenord bredvid varandra */
+.password-row{
+    display: flex;
+    gap: 20px;
+}
+
+.password-row div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+#form_box{
+
+    display: flex;
+    flex-direction: column;
+
+
+    height: 60% ;
+    margin: auto;
+    /*border: solid 1px #A349F5;*/
+    
+    border-radius: 20px;
+    
+
+    justify-items: center;
+    padding: 40px;
+    border: 2px solid transparent;
+
+    background:
+    linear-gradient(#071222, #071222) padding-box, /* boxens bakgrund */
+    linear-gradient(90deg,
+      #bc7de2,#b782e3,#b288e4,#ad8ee5,#a993e7,#a498e8,#9f9ee9,#9aa4ea,#95a9eb,#90aeec,
+      #8cb4ee,#87baef,#82bff0,#7dc4f1,#78caf2,#73d0f3,#6ed5f4,#6adaf6,#65e0f7,#60e6f8,#5bebf9
+    ) border-box;                  /* själva border-gradienten */
+
+  box-shadow: -4px 2px 35px -1px #A349F5;
+
+}
+
+
+#acunt_user_namn{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+/* From Uiverse.io by Jaareet */ 
+.input , 
+.gender-check,
+#button_reg,
+.andra_in,
+.inmatning_pasword,
+.inmatning_user{
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  font-weight: 700;
+  font-size: 0.8vw;
+  color: whitesmoke;
+  background-color: rgb(28,28,30);
+  box-shadow: 0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 0.4vw;
+  /*max-width: 190px;*/
+  transition: .4s;
+  
+
+}
+#logo{
+    width: 100px;
+    height: 100px;
+}
+.input:hover, 
+.gender-check:hover,
+#button_reg:hover,
+.andra_in:hover,
+.inmatning_pasword:hover,
+.inmatning_user:hover {
+  box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+}
+
+.input :focus, 
+.gender-check:focus,
+#button_reg:focus,
+.andra_in:focus,
+.inmatning_pasword:focus,
+.inmatning_user:focus {
+  box-shadow: 0 0 0 .15vw skyblue;
+}
+
+#button{
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  font-weight: 600;
+  font-size: .8vw;
+  color: whitesmoke;
+  background-color: rgb(28,28,30);
+  box-shadow: 0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 0.4vw;
+  max-width: 190px;
+  transition: .4s;
+  
+  margin-bottom: 30px;
+  margin-right: 40px;
+
+}
+
+
+#button_reg{
+    margin-top: 15px;
+      width: 120px;
+      height: 35px;
+}
+a{
+    color: whitesmoke;
+}

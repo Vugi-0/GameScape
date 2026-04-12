@@ -1,0 +1,139 @@
+#container{
+    display: flex;
+    color: whitesmoke;
+    background-color: #071222d3;
+    max-width: auto;
+    height: 100vh;
+    border: 1px solid black;
+}
+#avatar_box > a > #edit_profil{
+    position: fixed;
+    top: 230px;
+    right: 680px;
+    width: 30px;
+    
+}
+
+#avatar_box > a > #shared_img{
+    position: fixed;
+    top: 190px;
+    right: 530px;
+    width: 20px;
+    height: 20px;
+    
+}
+#avatar_box > a > #viewing{
+    position: fixed;
+    top: 250px;
+    right: 530px;
+    width: 20px;
+    
+}
+
+
+#profile_box{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 70% ;
+    margin: auto;
+    /*border: solid 1px #A349F5;*/
+    
+    border-radius: 20px;
+
+
+    justify-items: center;
+    align-items: center;
+    border: 2px solid transparent;
+
+    background:
+    linear-gradient(#071222, #071222) padding-box, /* boxens bakgrund */
+    linear-gradient(90deg,
+      #bc7de2,#b782e3,#b288e4,#ad8ee5,#a993e7,#a498e8,#9f9ee9,#9aa4ea,#95a9eb,#90aeec,
+      #8cb4ee,#87baef,#82bff0,#7dc4f1,#78caf2,#73d0f3,#6ed5f4,#6adaf6,#65e0f7,#60e6f8,#5bebf9
+    ) border-box;                  /* själva border-gradienten */
+
+  box-shadow: -4px 2px 35px -1px #A349F5;
+
+}
+
+#avatar_cirkel_img{
+    background-color: #47DAD5;
+  margin: auto;
+  margin-top: 20px;
+  width: 100px;
+  height: 100px;
+  border: #A349F5 solid 2px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#avatar_img{
+  width: 70px;
+  height: 70px;
+  display: block; /* bra för img */
+}
+
+#avatar_box > h3{
+    
+    text-align: center;
+}
+
+
+#game_box{
+    height: 160px;
+    width: 90%;
+    padding: 5px;
+    margin-bottom: 30px;
+    border: #47DAD5 solid 2px;
+    border-radius: 20px;
+
+    display: flex;
+}
+figure{
+    padding: 5px;   
+    width: 25%;
+    margin: auto;
+}
+figure >img{
+    width: 80px ;
+    height: 80px
+}
+figcaption {
+    font-size: 13px;
+}
+
+.imges_kant{
+        border-left: solid 2px #BC7DE2;
+
+
+}
+#About_me_box{
+        padding-left: 15px;
+    padding: 20px;
+    margin-bottom: 10px;
+    width: 85%;
+    height: 100px;
+    border: #47DAD5 solid 2px;
+    border-radius: 20px;
+}
+#interests{
+    padding: 20px;
+    display: flex;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    width: 85%;
+    height: 80px;
+    border: #47DAD5 solid 2px;
+    border-radius: 20px;
+
+
+}
+#interests > figure > img{
+    width: 30px;
+    height: 30px;
+}
+

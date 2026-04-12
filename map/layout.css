@@ -1,0 +1,344 @@
+/* ============================================================
+   layout.css - Discord-style dark theme
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #1e1f22;
+  color: #dbdee1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  height: 56px;
+  background-color: #2b2d31;
+  border-bottom: 1px solid #1e1f22;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  flex-shrink: 0;
+  z-index: 100;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.navbar-left {
+  min-width: 120px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navbar-logo {
+  font-size: 22px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #9b59b6, #8e44ad, #6c3483);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 8px rgba(155, 89, 182, 0.3);
+}
+
+.logo-accent {
+  background: linear-gradient(135deg, #bb8fce, #9b59b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 500;
+}
+
+.navbar-right {
+  min-width: 120px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ============================================================
+   HAMBURGER BUTTON
+   ============================================================ */
+.hamburger-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.hamburger-btn:hover {
+  background-color: #3b3f45;
+}
+
+.hamburger-line {
+  width: 22px;
+  height: 2px;
+  background-color: #dbdee1;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+/* ============================================================
+   PROFILE PICTURE
+   ============================================================ */
+.profile-pic {
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.profile-pic:hover {
+  opacity: 0.85;
+}
+
+.avatar-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #9b59b6;
+  object-fit: cover;
+}
+
+/* ============================================================
+   FLOATING FILTER BUTTON - Right side under profile
+   ============================================================ */
+.filter-float {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  z-index: 500;
+}
+
+.filter-float-btn {
+  background-color: #2b2d31;
+  border: 1px solid #3b3f45;
+  color: #dbdee1;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.filter-float-btn:hover {
+  background-color: #3b3f45;
+  border-color: #9b59b6;
+}
+
+.filter-dropdown-float {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: #2b2d31;
+  border: 1px solid #1e1f22;
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 220px;
+  z-index: 200;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.filter-dropdown-float.show {
+  display: flex;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-group label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #949ba4;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-group select {
+  background-color: #1e1f22;
+  border: 1px solid #3b3f45;
+  color: #dbdee1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: #9b59b6;
+}
+
+.filter-apply {
+  background: linear-gradient(135deg, #9b59b6, #8e44ad);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: opacity 0.2s;
+}
+
+.filter-apply:hover {
+  opacity: 0.9;
+}
+
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+.main-layout {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-area {
+  flex: 1;
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================================
+   SIDEBAR (Right panel for player details)
+   ============================================================ */
+.sidebar {
+  width: 360px;
+  background-color: #2b2d31;
+  border-left: 1px solid #1e1f22;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transform: translateX(100%);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 300;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 30px;
+  color: #949ba4;
+  font-size: 13px;
+  text-align: center;
+}
+
+.sidebar-empty-icon {
+  font-size: 40px;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+
+.sidebar-empty strong {
+  color: #dbdee1;
+}
+
+/* Player count */
+.player-count {
+  position: absolute;
+  bottom: 20px;
+  left: 12px;
+  background-color: #2b2d31;
+  border: 1px solid #1e1f22;
+  border-radius: 12px;
+  padding: 6px 14px;
+  font-size: 12px;
+  color: #949ba4;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(4px);
+}
+
+.count-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #9b59b6, #39d98a);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 12px;
+  }
+  
+  .navbar-logo {
+    font-size: 18px;
+  }
+  
+  .avatar-img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .filter-float {
+    top: 60px;
+    right: 12px;
+  }
+  
+  .filter-float-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+  
+  .sidebar {
+    width: 100%;
+    top: 0;
+  }
+}

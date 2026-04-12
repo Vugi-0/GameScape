@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/registrering.css">    
+    <title>Registrering</title>
+</head>
+<body>
+        <div id="container">
+            <header id="header">
+                <!-- vänster -->
+                <div class="header-left">
+                    <a href=""><h2>Registrering</h2></a>
+                </div>
+
+                <!-- mitten -->
+                <div class="header-center">
+                    <img id="logo" src="/static/img/imgs_to_projekt/gaming_logo.png" alt="logo">
+                </div>
+
+                <!-- höger -->
+                <div class="header-right">
+                    <div class="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
+            </header>
+            <main>
+                <div id="registrera_box" >
+                    <form id="form_box" action="/registrera" method="POST">
+                        <div id="acunt_inlog_box">
+                            <div id="full-width">
+                                <label class="inmatning_userj" for="Username">Username: </label>
+                                <input class="inmatning_user" id="Username" type="text" name="username" class="input" placeholder="User name">
+                            </div>
+                            <div id="password-row">
+                                <div class="div_row_password">
+                                    <label class="inmatning_paswordj" for="Lösenord">Lösenord: </label>
+                                    <input class="inmatning_pasword" id="Lösenord" type="password" name="password" class="input" placeholder="Password">
+                                </div>
+                            <!---conforim lösenord-->
+                                <div class="div_row_password">
+                                    <label class="inmatning_paswordj" for="Lösenord">Confirm lösenord: </label>
+                                    <input class="inmatning_pasword" id="Lösenord" type="password" name="confirm_password" class="input" placeholder="Confirm lösenord">
+                            
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="acunt_user_namn">
+                    <!-- From Uiverse.io by Jaareet --> 
+                            <label for="full_name">Full name: </label>
+                            <input class="andra_in" id="full_name" type="text" name="full_name" class="input" placeholder="Full name">
+
+
+                            <label for="email">Email: </label>
+                            <input class="andra_in" id="email" type="email" name="email" class="input" placeholder="email@example.com">
+
+                            <label for="birthday">Birthday: </label>
+                            <input class="andra_in" type="date" id="birthday" name="birthday">
+                        </div>
+
+                        <div id="gender-check_box">
+                            <!--gender--->
+                            <h4>Gender:</h4>
+                            <div id="gender_male">
+                                <label for="male" class="man-fimal-check">Male</label>
+                                <input class="gender-check" id="male" type="radio" value="male" aria-describedby="terms"  name="gender">
+                            </div>
+                            <div id="gender_female">
+                                <label class="man-fimal-check" for="female">Female</label>
+                                <input class="gender-check" type="radio" value="female" aria-describedby="terms" id="female" name="gender">
+                            </div>
+                        </div>
+
+                        <!---check boks-->
+                        <div class="">
+                            <input class="checkbox-conditions" type="checkbox" aria-describedby="terms" >
+                            <label class="font-light text-gray-500 text-gray-300">
+                                <a href="#" class="font-medium text-primary-600 hover:underline text-primary-500">
+                                                I accept the Terms and Conditions
+                                </a>
+                            </label>
+                        </div>
+
+                        <button  id="button_reg" type="submit">Registrea </button>
+                    </form>
+                </div>
+            </main>
+                
+            <footer id="footer">
+
+                <div class="footer-left">
+                    <p>© 2026 GameScape</p>
+                    <img id="social-media" src="/static/img/imgs_to_projekt/instagram.png" alt="instagram länk">
+                    <img id="social-media" src="/static/img/imgs_to_projekt/social-media.png" alt="facebook länk">
+                </div>
+                <div class="footer-center">
+                    <p>Contact: support@gamescape.com</p>
+                </div>
+                <div class="footer-right">
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                </div>
+            </footer>
+        </div>
+    
+</body>
+</html>
