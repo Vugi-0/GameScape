@@ -1,5 +1,3 @@
-README.txt
-
 GameScape
 
 Find local gamers -- connect, play, meet up
