@@ -7,11 +7,15 @@ def connect_db():
 
 
     db_config = {
-        'host': config['database']['host'],
-        'user': config['database']['user'],
+        'host': config['database']['host'].strip(),
+        'user': config['database']['user'].strip(),
         'port': config['database']['port'],
         'password': config['database']['password'],
-        'database': config['database']['database']
+        'dbname': config['database']['database'],
+        'sslmode':'require'
+,
+
+
     }
 
     try:
