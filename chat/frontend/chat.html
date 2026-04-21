@@ -3,32 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gamescape — Chat</title>
+  <title>Gamescape Chat</title>
   <link rel="stylesheet" href="/static/chat.css" />
 </head>
 <body>
 
-  <h1>Gamescape <span>Chat</span></h1>
+<div id="wrapper">
 
-  <!-- identity / connect -->
-  <div class="row">
-    <input id="username" placeholder="Your username" />
-    <button onclick="connectChat()">Connect</button>
+  <div id="header">
+    <h1>GameScape <span>Chat</span></h1>
+    <div id="connect-row">
+      <input id="username" placeholder="Username" autocomplete="off" />
+      <button onclick="connectChat()">Connect</button>
+    </div>
+    <div id="status">not connected</div>
   </div>
 
-  <div id="status">not connected</div>
+  <div id="body">
 
-  <!-- message window -->
-  <div id="chat"></div>
+    <div id="sidebar">
+      <div id="online-count">online — 0</div>
+      <div id="user-list"></div>
+    </div>
 
-  <!-- compose -->
-  <div class="row">
-    <input id="to"    placeholder="Send to..." />
-    <input id="input" placeholder="Message..." />
-    <button onclick="sendChatMessage()">Send</button>
+    <div id="main">
+      <div id="tabs"></div>
+      <div id="chat"></div>
+      <div id="compose">
+        <input id="input" placeholder="Message..." autocomplete="off" />
+        <button onclick="sendChatMessage()">Send</button>
+      </div>
+    </div>
+
   </div>
 
-  <script src="/static/chat.js"></script>
+</div>
+
+<script src="/static/chat.js"></script>
 
 </body>
 </html>
