@@ -43,6 +43,7 @@ ALTER TABLE users
 ADD COLUMN birthday DATE NOT NULL,
 ADD COLUMN gender VARCHAR(10) NOT NULL,
 ADD CONSTRAINT gender_chk CHECK (gender IN ('male', 'female'));
+ALTER TABLE users DROP COLUMN birth_date;
 
 -- ===== GAME =====
 CREATE TABLE game (
@@ -143,6 +144,6 @@ CREATE INDEX idx_notification_user ON notification(user_id, created_at);
 
 
 
-SELECT * FROM users WHERE full_name IS NULL;
+SELECT * FROM users 
 ALTER TABLE users
 ALTER COLUMN full_name SET NOT NULL;

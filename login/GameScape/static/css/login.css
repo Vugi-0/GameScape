@@ -1,13 +1,44 @@
+body{
+  color: whitesmoke;
+}
+
+main{
+    
+    flex: 1; /* tar all kvarvarande höjd */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+a{
+        text-decoration: none;
+      color: whitesmoke;
+}
 /* From Uiverse.io by Smit-Prajapati */ 
-.container {
+.container_sign_in {
+  
   max-width: 350px;
   background: #F8F9FD;
-  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
   border-radius: 40px;
   padding: 25px 35px;
-  border: 5px solid rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
   box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
-  margin: 20px;
+
+
+
+  background:
+      linear-gradient(#071222, #071222) padding-box, /* boxens bakgrund */
+
+    linear-gradient(90deg,
+      #bc7de2,#b782e3,#b288e4,#ad8ee5,#a993e7,#a498e8,#9f9ee9,#9aa4ea,#95a9eb,#90aeec,
+      #8cb4ee,#87baef,#82bff0,#7dc4f1,#78caf2,#73d0f3,#6ed5f4,#6adaf6,#65e0f7,#60e6f8,#5bebf9
+    ) border-box;                  /* själva border-gradienten */
+
+  box-shadow: -4px 2px 35px -1px #A349F5;
+
 }
 
 .heading {
@@ -22,13 +53,12 @@
 }
 
 .form .input {
-  width: 100%;
+  width: 88%;
   background: white;
   border: none;
   padding: 15px 20px;
   border-radius: 20px;
   margin-top: 15px;
-  box-shadow: #cff0ff 0px 10px 10px -5px;
   border-inline: 2px solid transparent;
 }
 
@@ -66,7 +96,6 @@
   padding-block: 15px;
   margin: 20px auto;
   border-radius: 20px;
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
   border: none;
   transition: all 0.2s ease-in-out;
 }
@@ -137,3 +166,102 @@
   color: #0099ff;
   font-size: 9px;
 }
+
+
+header > h2{
+    margin-top: 0px;
+}
+.header_left{
+    z-index: 1;
+}
+
+a:hover{
+    color: #65e0f7;
+}
+#container{
+  height: 100vh;
+
+}  
+
+main{
+    
+    flex: 1; /* tar all kvarvarande höjd */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header{
+    height: 100px;
+    background-color: #071222;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+    position: relative;
+}
+
+.header_center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+#registrera_link{
+
+  margin-bottom: 20px;
+}
+#footer{
+    height: 100px;
+    background-color: #47DAD5;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 20px;
+    color: whitesmoke;
+}
+
+
+#social_media{
+
+    width: 30px;
+    height: 30px;
+}
+
+#logo{
+    width: 100px;
+    height: 100px;
+}
+
+.header_right{
+    z-index: 1;
+}
+
+.burger{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.burger span{
+    width: 25px;
+    height: 3px;
+    background-color: whitesmoke;
+    display: block;
+}
+#container{
+    height: 100vh;
+    background: linear-gradient(to top right, #5bebf9 0%, #bc7de2 93%);
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+

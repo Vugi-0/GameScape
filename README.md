@@ -20,8 +20,7 @@ Repository: <https://github.com/Vugi-0/GameScape>
 
 ### Setup
 
-1.  Install PostgreSQL. If pgAdmin asks for a password during setup,
-    use: 1Xf2Gs
+1.  Install PostgreSQL. If pgAdmin asks for a password during setup
 
 <!-- -->
 
