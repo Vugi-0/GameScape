@@ -1,0 +1,94 @@
+/* ============================================================
+   map.css - Glassmorphism + Neon for MapLibre
+   ============================================================ */
+
+/* MapLibre popup styling - Glass + Neon */
+.maplibregl-popup-content {
+  background: rgba(14, 15, 18, 0.82) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid rgba(155, 89, 182, 0.45) !important;
+  border-radius: 16px !important;
+  color: #dbdee1 !important;
+  font-family: 'Segoe UI', system-ui, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 10px 18px !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(155, 89, 182, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+.maplibregl-popup-tip {
+  border-top-color: rgba(155, 89, 182, 0.45) !important;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Map controls - Glass + Neon */
+.maplibregl-ctrl-group {
+  background: rgba(14, 15, 18, 0.65) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(155, 89, 182, 0.35) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.maplibregl-ctrl-group button {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(155, 89, 182, 0.15) !important;
+}
+
+.maplibregl-ctrl-group button:hover {
+  background: rgba(155, 89, 182, 0.2) !important;
+}
+
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: drop-shadow(0 0 2px rgba(155, 89, 182, 0.5));
+}
+
+/* Attribution control - subtle glass */
+.maplibregl-ctrl-attrib {
+  background: rgba(14, 15, 18, 0.5) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 20px !important;
+  padding: 4px 12px !important;
+  font-size: 10px !important;
+}
+
+.maplibregl-ctrl-attrib a {
+  color: #c084fc !important;
+}
+
+/* Map canvas glow effect */
+.maplibregl-canvas {
+  filter: drop-shadow(0 0 4px rgba(155, 89, 182, 0.1));
+}
+.game-tag {
+    font-size: 11px;
+    background: #1e1f22;
+    border: 1px solid #3b3f45;
+    color: #949ba4;
+    padding: 3px 9px;
+    border-radius: 8px;
+}
+
+.chat-btn {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.2s;
+    font-family: inherit;
+}
+
+.chat-btn:hover {
+    opacity: 0.9;
+}

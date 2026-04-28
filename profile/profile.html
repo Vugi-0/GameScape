@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./profile.css">
+    <title>GameScape - My Profile</title>
+</head>
+<body>
+    <div class="profile-container">
+        <button class="close-btn" onclick="window.parent.closeModalPage()">&#x2715;</button>
+
+        <!-- AVATAR + NAME -->
+        <div class="avatar-box">
+            <div class="avatar-circle">
+                <img id="profileAvatar"
+                     src="https://api.dicebear.com/7.x/avataaars/svg?seed=default"
+                     alt="Profile avatar"
+                     class="avatar-img">
+            </div>
+            <h3 id="profileName">Loading...</h3>
+            <div class="action-icons">
+                <div class="icon-link" id="editBtn" title="Edit profile" onclick="toggleEdit()">
+                    <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </div>
+                <div class="icon-link" title="Share profile">
+                    <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                </div>
+                <div class="icon-link" title="View as public">
+                    <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- GAMES -->
+        <div class="game-box">
+            <div id="gamesView" style="width:100%; display:flex; justify-content:space-around; flex-wrap:wrap; gap:8px; align-items:center;">
+                <span class="empty-hint">No games added yet</span>
+            </div>
+            <div id="gamesEdit" style="display:none; width:100%; padding:4px 0;">
+                <input class="edit-input" type="text" id="gamesInput" placeholder="e.g. Valorant, CS2, Minecraft">
+                <p class="edit-hint">Separate games with a comma</p>
+            </div>
+        </div>
+
+        <!-- ABOUT ME -->
+        <div class="about-box">
+            <p class="about-title">About Me</p>
+            <p id="aboutView" class="about-text empty-hint">No description yet</p>
+            <textarea class="edit-input" id="aboutEdit" rows="3"
+                      placeholder="Tell other players about yourself..."
+                      style="display:none;"></textarea>
+        </div>
+
+        <!-- INTERESTS -->
+        <div class="interests-box">
+            <div id="interestsView" style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; align-items:center;">
+                <span class="empty-hint">No interests added yet</span>
+            </div>
+            <div id="interestsEdit" style="display:none; width:100%; padding:4px 0;">
+                <input class="edit-input" type="text" id="interestsInput" placeholder="e.g. PC Gaming, Controller">
+                <p class="edit-hint">Separate interests with a comma</p>
+            </div>
+        </div>
+
+        <button class="save-btn" id="saveBtn" onclick="saveProfile()">Save Profile</button>
+    </div>
+
+    <script src="./profile.js"></script>
+</body>
+</html>

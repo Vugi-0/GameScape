@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameScape - Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <!-- Main chat container - full screen -->
+    <div class="chat-fullscreen">
+
+        <!-- Top bar with back button (optional) and connection controls -->
+        <div class="top-bar">
+            <div class="back-button" onclick="window.location.href='../index.html'">
+                <span>←</span> Back to Map
+            </div>
+            <div class="connection-area">
+                <span id="connectionStatus" class="status-offline">Offline</span>
+                <input type="text" id="usernameInput" placeholder="Username" class="username-field">
+                <button id="connectBtn" class="connect-btn">Connect</button>
+            </div>
+        </div>
+
+        <!-- Main chat layout: contacts (left) + conversation (right) -->
+        <div class="chat-layout">
+            <!-- Left panel: contacts with search -->
+            <div class="contacts-panel">
+                <div class="contacts-header">
+                    <h3>Chats</h3>
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Search friends...">
+                    </div>
+                </div>
+                <div class="contacts-list" id="contactsList">
+                    <div class="contact-placeholder">Connect to see online friends</div>
+                </div>
+            </div>
+
+            <!-- Right panel: active conversation -->
+            <div class="conversation-panel">
+                <div class="conversation-header">
+                    <div class="user-info">
+                        <div class="user-avatar"></div>
+                        <span class="user-name" id="currentChatName">Select a friend</span>
+                    </div>
+                </div>
+                <div class="messages-container" id="messagesContainer">
+                    <div class="placeholder-message">Connect and click on a friend to start chatting</div>
+                </div>
+                <div class="message-input-area">
+                    <input type="text" id="messageInput" placeholder="Type a message..." disabled>
+                    <button id="sendBtn" disabled>Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>
