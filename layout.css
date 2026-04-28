@@ -1,0 +1,617 @@
+/* ============================================================
+   layout.css - Glassmorphism + Neon Theme
+   ============================================================ */
+
+/* Google Fonts alternativ för gaming-känsla */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Quicksand', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 20% 30%, #0d0d12, #050508);
+  color: #dbdee1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle animated background grid */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(155, 89, 182, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155, 89, 182, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   NAVBAR - Glass + Neon (moving underline)
+   ============================================================ */
+.navbar {
+  height: 60px;
+  background: rgba(14, 15, 18, 0.55);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border-bottom: 1px solid rgba(155, 89, 182, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  flex-shrink: 0;
+  z-index: 100;
+  position: relative;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Moving neon line under navbar - left to right loop */
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #9b59b6, #c084fc, #e9d5ff, #c084fc, #9b59b6, transparent);
+  filter: blur(3px);
+  animation: neon-slide 5s ease-in-out infinite;
+}
+
+@keyframes neon-slide {
+  0% { left: -100%; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Second neon line for continuous effect */
+.navbar::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #9b59b6, #c084fc, #e9d5ff, #c084fc, #9b59b6, transparent);
+  filter: blur(3px);
+  animation: neon-slide-2 5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes neon-slide-2 {
+  0% { right: -100%; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { right: 100%; opacity: 0; }
+}
+
+.navbar-left {
+  min-width: 120px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navbar-logo {
+  font-family: 'Orbitron', 'Segoe UI', system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #c084fc, #9b59b6, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 1px;
+  text-shadow: 0 0 20px rgba(155, 89, 182, 0.4);
+  animation: logo-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logo-glow {
+  0% { text-shadow: 0 0 10px rgba(155, 89, 182, 0.3); }
+  100% { text-shadow: 0 0 25px rgba(155, 89, 182, 0.6); }
+}
+
+.logo-accent {
+  font-family: 'Orbitron', 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, #e9d5ff, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+
+.navbar-right {
+  min-width: 120px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ============================================================
+   HAMBURGER BUTTON
+   ============================================================ */
+.hamburger-btn {
+  background: rgba(30, 31, 34, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(155, 89, 182, 0.3);
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.hamburger-btn:hover {
+  background: rgba(155, 89, 182, 0.2);
+  border-color: rgba(155, 89, 182, 0.7);
+  box-shadow: 0 0 12px rgba(155, 89, 182, 0.3);
+}
+
+.hamburger-line {
+  width: 22px;
+  height: 2px;
+  background: linear-gradient(90deg, #dbdee1, #c084fc);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+/* ============================================================
+   PROFILE PICTURE
+   ============================================================ */
+.profile-pic {
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.profile-pic::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #9b59b6, #7c3aed);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+.profile-pic:hover::before {
+  opacity: 0.6;
+  filter: blur(4px);
+}
+
+.profile-pic:hover {
+  transform: scale(1.02);
+}
+
+.avatar-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid rgba(155, 89, 182, 0.6);
+  object-fit: cover;
+  background: rgba(14, 15, 18, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+/* ============================================================
+   FLOATING FILTER BUTTON + DROPDOWN - Glass + Neon (same as hamburger)
+   ============================================================ */
+.filter-float {
+  position: absolute;
+  top: 72px;
+  right: 20px;
+  z-index: 500;
+}
+
+.filter-float-btn {
+  background: rgba(14, 15, 18, 0.65);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(155, 89, 182, 0.4);
+  color: #dbdee1;
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.filter-float-btn:hover {
+  background: rgba(30, 31, 34, 0.8);
+  border-color: rgba(155, 89, 182, 0.8);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4), 0 0 16px rgba(155, 89, 182, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Filter Dropdown - FRISTÅENDE med roterande neonkant */
+.filter-dropdown-float {
+  display: none;
+  position: absolute;
+  top: 52px;
+  right: 0;
+  width: 260px;
+  background: rgba(14, 15, 18, 0.85);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border-radius: 24px;
+  z-index: 200;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(155, 89, 182, 0.3);
+}
+
+/* Rotating neon border on the OUTSIDE */
+.filter-dropdown-float::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: conic-gradient(
+    from 0deg,
+    #9b59b6,
+    #c084fc,
+    #e9d5ff,
+    #c084fc,
+    #9b59b6,
+    #7c3aed,
+    #9b59b6
+  );
+  border-radius: 27px;
+  z-index: -2;
+  animation: filter-neon-spin 7s linear infinite;
+}
+
+/* Glass fill that covers the rotating border EXCEPT the outer edge */
+.filter-dropdown-float::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: rgba(14, 15, 18, 0.92);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-radius: 22px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes filter-neon-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.filter-dropdown-float.show {
+  display: flex;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 20px;
+}
+
+.filter-group:first-of-type {
+  padding-top: 20px;
+}
+
+.filter-group label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #c084fc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.filter-group select {
+  background: rgba(30, 31, 34, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(155, 89, 182, 0.3);
+  color: #dbdee1;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-group select:hover {
+  border-color: rgba(155, 89, 182, 0.6);
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: #9b59b6;
+  box-shadow: 0 0 12px rgba(155, 89, 182, 0.3);
+}
+
+.filter-apply {
+  background: linear-gradient(135deg, #9b59b6, #7c3aed);
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 16px 20px 20px 20px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-apply:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(155, 89, 182, 0.4);
+}
+
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+.main-layout {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.map-area {
+  flex: 1;
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================================
+   SIDEBAR (Right panel)
+   ============================================================ */
+.sidebar {
+  width: 380px;
+  background: rgba(14, 15, 18, 0.68);
+  backdrop-filter: blur(28px) saturate(170%);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  border-left: 1px solid rgba(155, 89, 182, 0.2);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 300;
+  box-shadow: -6px 0 32px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, #9b59b6, #c084fc, #e9d5ff, #c084fc, #9b59b6);
+  filter: blur(4px);
+  opacity: 0.8;
+  animation: sidebar-neon-pulse 5s ease-in-out infinite;
+}
+
+@keyframes sidebar-neon-pulse {
+  0%, 100% { opacity: 0.5; filter: blur(3px); }
+  50% { opacity: 1; filter: blur(5px); }
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+  color: #949ba4;
+  font-size: 13px;
+  text-align: center;
+}
+
+.sidebar-empty-icon {
+  font-size: 48px;
+  margin-bottom: 8px;
+  opacity: 0.5;
+  filter: drop-shadow(0 0 8px rgba(155, 89, 182, 0.3));
+}
+
+.sidebar-empty strong {
+  color: #e9d5ff;
+  font-size: 16px;
+}
+
+.profile-card {
+  background: rgba(10, 11, 14, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  margin: 16px;
+  border: 1px solid rgba(155, 89, 182, 0.25);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.chat-panel {
+  background: rgba(10, 11, 14, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  margin: 16px;
+  border: 1px solid rgba(155, 89, 182, 0.25);
+  overflow: hidden;
+}
+
+/* ============================================================
+   PLAYER COUNT
+   ============================================================ */
+.player-count {
+  position: absolute;
+  bottom: 20px;
+  left: 16px;
+  background: rgba(14, 15, 18, 0.65);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(155, 89, 182, 0.35);
+  border-radius: 40px;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #c084fc;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.count-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #9b59b6, #39d98a);
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 6px #9b59b6;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ============================================================
+   MODAL OVERLAY & FRAME (for login/register/profile pages)
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-frame {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);   /* start higher (from top) */
+  width: 500px;          
+  height: 600px;
+  min-height: 725px;     
+  background: transparent;
+  border: none;
+  border-radius: 28px;
+  z-index: 2001;
+  opacity: 0;                         /* start invisible */
+  visibility: hidden;
+  transition: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);  /* smooth, slightly bouncy */
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.modal-frame.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) ;
+}
+
+/* Make iframe content fill the modal */
+.modal-frame body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+
+/* ============================================================
+   MOBILE RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+  }
+  
+  .navbar-logo {
+    font-size: 18px;
+  }
+  
+  .avatar-img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .filter-float {
+    top: 64px;
+    right: 12px;
+  }
+  
+  .filter-float-btn {
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+  
+  .sidebar {
+    width: 100%;
+    top: 0;
+  }
+  
+  .filter-dropdown-float {
+    width: 240px;
+  }
+}
+
+
